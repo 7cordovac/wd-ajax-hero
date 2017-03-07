@@ -54,7 +54,65 @@
 
       $('.modal-trigger').leanModal();
     }
-  };
+};
 
   // ADD YOUR CODE HERE
+
+
+ //- Listen for submissions on the search form. Remember to prevent the default action.
+ $('button').click(function(event){
+    var input_val = $("#search").val();
+    if(input_val === '' ){
+      alert("enter valid movie name")
+
+   } else {
+      $.getJSON( "http://www.omdbapi.com/?s=" + input_val, function( data ) {
+        console.log("getJSON method ", data);
+      });
+   }
+
+
+
+
+});
+
+
+  //- Validate the user input is not blank.
+ //$('#input_field').on('input', function() {
+//	var input=$(this);
+//	var is_name=input.val();
+//   if(is_name){input.removeClass("invalid").addClass("valid");}
+//   else{input.removeClass("valid").addClass("invalid");}
+//});
+
+ // - Clear the previous search results.
+
+//- Send an HTTP request to the [OMDB API](http://omdbapi.com/) search endpoint.
+
+
+
+//Render `movies` array to page by calling `renderMovies()`function w/no  //arguments.
+
+
+
+
+
+
+/*
+- Listen for submissions on the search form. Remember to prevent the default action.
+- Validate the user input is not blank.
+- Clear the previous search results.
+- Send an HTTP request to the [OMDB API](http://omdbapi.com/) search endpoint.
+- Handle the HTTP response by pushing a new, well-formed `movie` object into the global `movies` array.
+
+
+
+- Render the `movies` array to the page by calling the `renderMovies()` function with no arguments.
+
+Each well-formed `movie` object in the `movies` array must have the following key-value pairs.*/
+//  `id`     | The movie's unique imdb ID number.  |
+//| `poster` | The URL to the movie's poster image |
+//| `title`  | The title of the movie.             |
+//| `year`   | The year of the movie's release.
+
 })();
